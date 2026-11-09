@@ -7,7 +7,12 @@ authors = [
     { name = "Aakhash Viji Ganesh", email = "aakhashgv@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.4",
+    "pandas>=3.1.1",
+    "polar>=0.0.127",
+    "scikit-learn>=1.9.1",
+]
 
 [project.scripts]
 ml-semester-project = "ml_semester_project:main"
