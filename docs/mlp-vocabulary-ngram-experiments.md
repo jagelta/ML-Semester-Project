@@ -1,7 +1,8 @@
 # Neural model, vocabulary stress test, n-gram ablation, and error analysis
 
 Design notes and results for the part of the project owned by Erik Vera.
-Written on November 18, 2026.
+Written on November 18, 2026. Checked against the team's `main` on November 22,
+2026 (section 15).
 
 Every number in this document comes from a file in
 `src/ml_semester_project/output/` and can be regenerated with the commands in the
@@ -47,7 +48,8 @@ what the majority baseline scores everywhere.
 ## 3. Shared text features (`features.py`)
 
 The comparison is about models, so the models should read the same input. This
-module holds one set of rules. The MLP uses it. The team's harness notes say that
+module holds one set of rules. The MLP uses it. The team's harness notes
+(`HARNESS_REQUIREMENTS.md`, removed from the repository on November 19) said that
 each model owns its preprocessing, so the other models are free to adopt it or
 not (section 13).
 
@@ -515,6 +517,11 @@ Run:
   entry point gave the same MLP numbers as the separate MLP run.
 - The PNG version of every figure was inspected.
 - The data files were compared with the Hugging Face repository by SHA-256.
+- A check against the team's current `main` (commit `943a774`, which removed
+  unused files on November 19), run on November 22 in a new environment: the
+  merge has no conflicts, the 55 unit tests pass, and the main entry point gives
+  the same MLP results as the saved files in all 33 runs (identical accuracy,
+  precision, recall, F1, and confusion matrices).
 
 Not run:
 

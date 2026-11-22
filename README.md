@@ -135,8 +135,6 @@ text can be joined back.
 The design decisions behind the MLP, the vocabulary stress test, the ablation,
 and the error analysis, with the result tables, are explained in
 [`docs/mlp-vocabulary-ngram-experiments.md`](docs/mlp-vocabulary-ngram-experiments.md).
-The harness requirements and their status are in
-[`HARNESS_REQUIREMENTS.md`](HARNESS_REQUIREMENTS.md).
 
 ## Repository layout
 
