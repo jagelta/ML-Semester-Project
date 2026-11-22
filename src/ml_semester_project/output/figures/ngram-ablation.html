@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"domainColor": "#c3c2b7", "gridColor": "#e1e0d9", "gridWidth": 1, "labelColor": "#52514e", "labelFontSize": 12, "tickColor": "#c3c2b7", "titleColor": "#52514e", "titleFontSize": 12, "titleFontWeight": "normal", "titlePadding": 8}, "background": "#ffffff", "header": {"labelAnchor": "start", "labelColor": "#0b0b0b", "labelFontSize": 13, "labelFontWeight": "bold", "title": null}, "legend": {"labelColor": "#52514e", "labelFontSize": 12, "symbolSize": 90, "symbolStrokeWidth": 2, "titleColor": "#52514e", "titleFontSize": 12, "titleFontWeight": "normal"}, "title": {"anchor": "start", "color": "#0b0b0b", "fontSize": 15, "offset": 14, "subtitleColor": "#52514e", "subtitleFontSize": 12, "subtitlePadding": 6}}, "data": {"name": "data-cf41bdfb2c47f111320792ad5fbc654a"}, "facet": {"column": {"field": "evaluation", "sort": ["Validation set", "Test set"], "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "rule", "color": "#c3c2b7", "strokeWidth": 2}, "encoding": {"x": {"aggregate": "min", "axis": {"format": ".3f", "tickCount": 5}, "field": "accuracy_mean", "scale": {"padding": 20, "zero": false}, "title": "Accuracy (mean \u00b1 std over 3 seeds)", "type": "quantitative"}, "x2": {"aggregate": "max", "field": "accuracy_mean"}, "y": {"field": "model", "sort": ["MLP"], "title": null, "type": "nominal"}}}, {"mark": {"type": "rule", "strokeWidth": 1.5}, "encoding": {"color": {"field": "features", "scale": {"domain": ["unigram", "unigram+bigram"], "range": ["#86b6ef", "#1c5cab"]}, "title": "Features", "type": "nominal"}, "x": {"field": "lower", "title": "Accuracy (mean \u00b1 std over 3 seeds)", "type": "quantitative"}, "x2": {"field": "upper"}, "y": {"field": "model", "sort": ["MLP"], "title": null, "type": "nominal"}}}, {"mark": {"type": "point", "filled": true, "opacity": 1, "size": 120, "stroke": "#ffffff", "strokeWidth": 2}, "encoding": {"color": {"field": "features", "scale": {"domain": ["unigram", "unigram+bigram"], "range": ["#86b6ef", "#1c5cab"]}, "title": "Features", "type": "nominal"}, "tooltip": [{"field": "model", "title": "Model", "type": "nominal"}, {"field": "evaluation", "title": "Evaluated on", "type": "nominal"}, {"field": "features", "title": "Features", "type": "nominal"}, {"field": "shared_feature_count", "format": ",", "title": "Number of features", "type": "quantitative"}, {"field": "accuracy_mean", "format": ".4f", "title": "Mean accuracy", "type": "quantitative"}, {"field": "accuracy_std", "format": ".4f", "title": "Std over seeds", "type": "quantitative"}, {"field": "accuracy_gain_from_bigrams_mean", "format": "+.4f", "title": "Gain from bigrams", "type": "quantitative"}, {"field": "run_seconds_mean", "format": ".0f", "title": "Mean seconds per run", "type": "quantitative"}], "x": {"field": "accuracy_mean", "type": "quantitative"}, "y": {"field": "model", "sort": ["MLP"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "color": "#52514e", "dy": -14, "fontSize": 11}, "encoding": {"text": {"field": "accuracy_mean", "format": ".3f", "type": "quantitative"}, "x": {"field": "accuracy_mean", "type": "quantitative"}, "y": {"field": "model", "sort": ["MLP"], "title": null, "type": "nominal"}}}], "height": {"step": 64}, "width": 330}, "title": {"text": "Feature ablation: unigrams versus unigrams plus bigrams", "subtitle": "Same data and settings; only the n-gram range changes"}, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-cf41bdfb2c47f111320792ad5fbc654a": [{"evaluation_set": "validation", "model_name": "mlp", "features": "unigram", "min_document_frequency": 5, "shared_feature_count": 25921, "runs": 3, "accuracy_mean": 0.9034666666666666, "accuracy_std": 0.0016653327995729582, "precision_macro_mean": 0.903541373738344, "precision_macro_std": 0.0016575042051034349, "recall_macro_mean": 0.9034666666666666, "recall_macro_std": 0.0016653327995729361, "f1_macro_mean": 0.9034621909467665, "f1_macro_std": 0.0016659604969885933, "run_seconds_mean": 8.4, "accuracy_gain_from_bigrams_mean": null, "accuracy_gain_from_bigrams_std": null, "lower": 0.9018013338670937, "upper": 0.9051319994662396, "model": "MLP", "evaluation": "Validation set"}, {"evaluation_set": "validation", "model_name": "mlp", "features": "unigram+bigram", "min_document_frequency": 5, "shared_feature_count": 142295, "runs": 3, "accuracy_mean": 0.9169333333333333, "accuracy_std": 0.0010066445913694529, "precision_macro_mean": 0.9169476594590171, "precision_macro_std": 0.0010099783966427143, "recall_macro_mean": 0.9169333333333333, "recall_macro_std": 0.0010066445913694125, "f1_macro_mean": 0.9169326213682911, "f1_macro_std": 0.0010064944961882957, "run_seconds_mean": 60.5, "accuracy_gain_from_bigrams_mean": 0.013466666666666663, "accuracy_gain_from_bigrams_std": 0.0016165807537309432, "lower": 0.9159266887419638, "upper": 0.9179399779247027, "model": "MLP", "evaluation": "Validation set"}, {"evaluation_set": "test", "model_name": "mlp", "features": "unigram", "min_document_frequency": 5, "shared_feature_count": 27271, "runs": 3, "accuracy_mean": 0.8854533333333333, "accuracy_std": 0.0007203702751594536, "precision_macro_mean": 0.885782915041124, "precision_macro_std": 0.0007454155413205654, "recall_macro_mean": 0.8854533333333333, "recall_macro_std": 0.0007203702751594857, "f1_macro_mean": 0.8854288726433133, "f1_macro_std": 0.0007188795505217169, "run_seconds_mean": 13.3, "accuracy_gain_from_bigrams_mean": null, "accuracy_gain_from_bigrams_std": null, "lower": 0.8847329630581738, "upper": 0.8861737036084928, "model": "MLP", "evaluation": "Test set"}, {"evaluation_set": "test", "model_name": "mlp", "features": "unigram+bigram", "min_document_frequency": 5, "shared_feature_count": 155437, "runs": 3, "accuracy_mean": 0.9060933333333333, "accuracy_std": 0.000574572304704404, "precision_macro_mean": 0.9061994206220335, "precision_macro_std": 0.0005047307596907476, "recall_macro_mean": 0.9060933333333333, "recall_macro_std": 0.000574572304704404, "f1_macro_mean": 0.9060871812329173, "f1_macro_std": 0.0005787636884820159, "run_seconds_mean": 85.2, "accuracy_gain_from_bigrams_mean": 0.02064000000000003, "accuracy_gain_from_bigrams_std": 0.0006939740629158534, "lower": 0.9055187610286289, "upper": 0.9066679056380377, "model": "MLP", "evaluation": "Test set"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

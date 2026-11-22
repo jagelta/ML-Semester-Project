@@ -1,0 +1,49 @@
+model_name,evaluation_set,features,min_document_frequency,shared_feature_count,seed,train_fraction,split_seed,validation_fraction,status,training_rows,accuracy,precision_macro,recall_macro,f1_macro,confusion_matrix,run_seconds,reason
+control,validation,unigram,5,25921,420,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+control,validation,unigram,5,25921,421,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+control,validation,unigram,5,25921,422,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+logistic_regression,validation,unigram,5,25921,420,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,validation,unigram,5,25921,421,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,validation,unigram,5,25921,422,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+mlp,validation,unigram,5,25921,420,1.0,420.0,0.1,completed,22500.0,0.9016,0.9016658089261345,0.9016,0.9015959693709055,"[[1135, 115], [131, 1119]]",8.6,
+mlp,validation,unigram,5,25921,421,1.0,420.0,0.1,completed,22500.0,0.9048,0.9048093268068896,0.9048,0.9047994516448414,"[[1134, 116], [122, 1128]]",8.3,
+mlp,validation,unigram,5,25921,422,1.0,420.0,0.1,completed,22500.0,0.904,0.9041489854820081,0.9039999999999999,0.9039911518245523,"[[1118, 132], [108, 1142]]",8.2,
+naive_bayes,validation,unigram,5,25921,420,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,validation,unigram,5,25921,421,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,validation,unigram,5,25921,422,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+control,validation,unigram+bigram,5,142295,420,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+control,validation,unigram+bigram,5,142295,421,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+control,validation,unigram+bigram,5,142295,422,1.0,420.0,0.1,completed,22500.0,0.5,0.25,0.5,0.3333333333333333,"[[1250, 0], [1250, 0]]",0.0,
+logistic_regression,validation,unigram+bigram,5,142295,420,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,validation,unigram+bigram,5,142295,421,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,validation,unigram+bigram,5,142295,422,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+mlp,validation,unigram+bigram,5,142295,420,1.0,420.0,0.1,completed,22500.0,0.9168,0.9168042680757051,0.9168000000000001,0.9167997870074547,"[[1148, 102], [106, 1144]]",61.6,
+mlp,validation,unigram+bigram,5,142295,421,1.0,420.0,0.1,completed,22500.0,0.918,0.9180216702433854,0.9179999999999999,0.9179989372662269,"[[1152, 98], [107, 1143]]",52.8,
+mlp,validation,unigram+bigram,5,142295,422,1.0,420.0,0.1,completed,22500.0,0.916,0.9160170400579608,0.9159999999999999,0.9159991398311919,"[[1149, 101], [109, 1141]]",67.2,
+naive_bayes,validation,unigram+bigram,5,142295,420,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,validation,unigram+bigram,5,142295,421,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,validation,unigram+bigram,5,142295,422,1.0,420.0,0.1,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+control,test,unigram,5,27271,420,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+control,test,unigram,5,27271,421,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+control,test,unigram,5,27271,422,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+logistic_regression,test,unigram,5,27271,420,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,test,unigram,5,27271,421,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,test,unigram,5,27271,422,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+mlp,test,unigram,5,27271,420,1.0,,,completed,25000.0,0.88496,0.8853236370061977,0.88496,0.8849328522538591,"[[11254, 1246], [1630, 10870]]",13.2,
+mlp,test,unigram,5,27271,421,1.0,,,completed,25000.0,0.88628,0.8866429841452883,0.88628,0.8862533033773106,"[[11270, 1230], [1613, 10887]]",12.7,
+mlp,test,unigram,5,27271,422,1.0,,,completed,25000.0,0.88512,0.8853821239718863,0.8851199999999999,0.88510046229877,"[[11227, 1273], [1599, 10901]]",14.1,
+naive_bayes,test,unigram,5,27271,420,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,test,unigram,5,27271,421,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,test,unigram,5,27271,422,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+control,test,unigram+bigram,5,155437,420,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+control,test,unigram+bigram,5,155437,421,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+control,test,unigram+bigram,5,155437,422,1.0,,,completed,25000.0,0.5,0.25,0.5,0.3333333333333333,"[[12500, 0], [12500, 0]]",0.1,
+logistic_regression,test,unigram+bigram,5,155437,420,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,test,unigram+bigram,5,155437,421,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+logistic_regression,test,unigram+bigram,5,155437,422,1.0,,,not_implemented,,,,,,,0.0,The logistic_regression model runner does not accept feature settings yet
+mlp,test,unigram+bigram,5,155437,420,1.0,,,completed,25000.0,0.90544,0.9056349020538021,0.90544,0.9054286399369151,"[[11455, 1045], [1319, 11181]]",79.3,
+mlp,test,unigram+bigram,5,155437,421,1.0,,,completed,25000.0,0.90632,0.9063562118649217,0.90632,0.906317912912991,"[[11388, 1112], [1230, 11270]]",97.7,
+mlp,test,unigram+bigram,5,155437,422,1.0,,,completed,25000.0,0.90652,0.9066071479473767,0.90652,0.9065149908488457,"[[11423, 1077], [1260, 11240]]",78.7,
+naive_bayes,test,unigram+bigram,5,155437,420,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,test,unigram+bigram,5,155437,421,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet
+naive_bayes,test,unigram+bigram,5,155437,422,1.0,,,not_implemented,,,,,,,0.0,The naive_bayes model runner does not accept feature settings yet

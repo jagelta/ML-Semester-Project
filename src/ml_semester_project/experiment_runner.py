@@ -1,4 +1,5 @@
 from dataclasses import asdict, dataclass
+import inspect
 import json
 from typing import Callable
 
@@ -13,6 +14,7 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
+from .features import FeatureConfig
 from .models.control import run_model as run_control_model
 from .models.logistic_regression import run_model as run_logistic_regression
 from .models.mlp import run_model as run_mlp
@@ -40,7 +42,7 @@ class ExperimentConfig:
     seed: int
 
 
-ModelRunner = Callable[[pd.DataFrame, pd.DataFrame, int], np.ndarray]
+ModelRunner = Callable[..., np.ndarray]
 MODEL_RUNNERS: dict[str, ModelRunner] = {
     "control": run_control_model,
     "logistic_regression": run_logistic_regression,
@@ -112,6 +114,26 @@ def _stratified_training_subset(
     return subset
 
 
+def _call_model_runner(
+    model_name: str,
+    training_subset: pd.DataFrame,
+    evaluation_data: pd.DataFrame,
+    seed: int,
+    features: FeatureConfig | None,
+) -> np.ndarray:
+    # With features=None the runner is called exactly as before. An experiment
+    # that changes the features (the n-gram ablation) passes a FeatureConfig, and
+    # only runners that declare a `features` parameter can take part in it.
+    runner = MODEL_RUNNERS[model_name]
+    if features is None:
+        return runner(training_subset, evaluation_data, seed)
+    if "features" not in inspect.signature(runner).parameters:
+        raise NotImplementedError(
+            f"The {model_name} model runner does not accept feature settings yet"
+        )
+    return runner(training_subset, evaluation_data, seed, features=features)
+
+
 def run_experiment(
     config: ExperimentConfig,
     plan: ExperimentPlan,
@@ -119,6 +141,7 @@ def run_experiment(
     evaluation_data: pd.DataFrame,
     evaluation_set: str,
     split_seed: int | None,
+    features: FeatureConfig | None = None,
 ) -> tuple[dict[str, object], pd.DataFrame | None]:
     if config.model_name not in MODEL_RUNNERS:
         raise ValueError(f"Unknown model: {config.model_name}")
@@ -137,10 +160,12 @@ def run_experiment(
             config.train_fraction,
             config.seed,
         )
-        predictions = MODEL_RUNNERS[config.model_name](
+        predictions = _call_model_runner(
+            config.model_name,
             training_subset,
             evaluation_data,
             config.seed,
+            features,
         )
     except NotImplementedError as error:
         return (
@@ -195,6 +220,7 @@ def run_sweep(
     evaluation_data: pd.DataFrame,
     evaluation_set: str,
     split_seed: int | None,
+    features: FeatureConfig | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     runs = [
         run_experiment(
@@ -204,6 +230,7 @@ def run_sweep(
             evaluation_data,
             evaluation_set,
             split_seed,
+            features,
         )
         for config in configs
     ]
